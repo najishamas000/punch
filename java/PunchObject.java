@@ -1,9 +1,9 @@
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.awt.Rectangle;
 import java.awt.Dimension;
 import javax.swing.*;
 import java.util.*;
-
 
 public abstract class PunchObject {
 
@@ -11,15 +11,17 @@ public abstract class PunchObject {
 	protected ID id;
 	protected int velX, velY;
 
-	public PunchObject(int x, int y, ID id)
-	{
+	public PunchObject(int x, int y, ID id) {
 		this.x = x;
 		this.y = y;
 		this.id = id;
 	}
 
 	public abstract void tick();
+
 	public abstract void render(Graphics g);
+
+	public abstract Rectangle getBounds();
 
 	public void setX(int x) {
 		this.x = x;
@@ -28,6 +30,7 @@ public abstract class PunchObject {
 	public void setY(int y) {
 		this.y = y;
 	}
+
 	public int getX() {
 		return x;
 	}
@@ -38,7 +41,7 @@ public abstract class PunchObject {
 
 	public void setId(ID id) {
 		this.id = id;
-	}	
+	}
 
 	public ID getId() {
 		return id;
